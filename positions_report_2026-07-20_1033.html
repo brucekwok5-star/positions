@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Gain/Loss Report</title>
+<style>
+  :root {
+    --green: #16a34a;
+    --red: #dc2626;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --muted: #64748b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 32px;
+  }
+  .container { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+
+  .summary {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .card .label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .card .value { font-size: 20px; font-weight: 600; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2) {
+    text-align: left;
+  }
+  th {
+    background: #f1f5f9;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+  }
+  tr:last-child td { border-bottom: none; }
+  .pos { color: var(--green); font-weight: 600; }
+  .neg { color: var(--red); font-weight: 600; }
+  .footer { margin-top: 20px; font-size: 12px; color: var(--muted); }
+  .new-badge { background: #dbeafe; color: #1d4ed8; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Portfolio Gain / Loss Report</h1>
+  <div class="subtitle">Generated 2026-07-20 10:33 &middot; Source: 持倉.csv &middot; Values converted to HKD-equivalent at USD/HKD 7.8418 &middot; Stop Loss = -10% of avg cost, Stop Gain = +20% of avg cost</div>
+
+  <div class="summary">
+    <div class="card">
+      <div class="label">Total Market Value</div>
+      <div class="value">HK$1,792,372</div>
+    </div>
+    <div class="card">
+      <div class="label">Total Cost Basis</div>
+      <div class="value">HK$2,044,952</div>
+    </div>
+    <div class="card">
+      <div class="label">Total Unrealized P/L</div>
+      <div class="value neg">-HK$252,580</div>
+    </div>
+    <div class="card">
+      <div class="label">Overall Gain/Loss %</div>
+      <div class="value neg">-12.35%</div>
+    </div>
+    <div class="card">
+      <div class="label">Today's P/L</div>
+      <div class="value pos">+HK$22,240</div>
+    </div>
+    <div class="card">
+      <div class="label">Today's P/L %</div>
+      <div class="value pos">+1.26%</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Currency</th>
+        <th>Market Value</th>
+        <th>Avg Cost</th>
+        <th>Unrealized P/L</th>
+        <th>P/L %</th>
+        <th>Today's P/L</th>
+        <th>Today P/L %</th>
+        <th>Stop Loss (-10%)</th>
+        <th>Stop Gain (+20%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>09926</td><td>AKESO</td><td>HKD</td><td>93,050.00</td><td>89.70</td><td class="pos">+3,350.00</td><td class="pos">+3.73%</td><td class="pos">+4,700.00</td><td class="pos">+5.32%</td><td class="neg">80.73</td><td class="pos">107.64</td></tr>
+      <tr><td>02883</td><td>CHINA OILFIELD</td><td>HKD</td><td>155,540.00</td><td>8.834</td><td class="neg">-38,800.00</td><td class="neg">-19.97%</td><td class="pos">+6,820.00</td><td class="pos">+4.59%</td><td class="neg">7.951</td><td class="pos">10.601</td></tr>
+      <tr><td>09988</td><td>BABA-W</td><td>HKD</td><td>139,920.00</td><td>139.05</td><td class="neg">-26,940.00</td><td class="neg">-16.15%</td><td class="pos">+4,800.00</td><td class="pos">+3.55%</td><td class="neg">125.15</td><td class="pos">166.86</td></tr>
+      <tr><td>03690</td><td>MEITUAN-W</td><td>HKD</td><td>17,210.00</td><td>68.00</td><td class="pos">+3,610.00</td><td class="pos">+26.54%</td><td class="pos">+480.00</td><td class="pos">+2.87%</td><td class="neg">61.20</td><td class="pos">81.60</td></tr>
+      <tr><td>00700</td><td>TENCENT</td><td>HKD</td><td>47,100.00</td><td>575.00</td><td class="neg">-10,400.00</td><td class="neg">-18.09%</td><td class="pos">+940.00</td><td class="pos">+2.04%</td><td class="neg">517.50</td><td class="pos">690.00</td></tr>
+      <tr><td>03750</td><td>CATL (寧德時代) <span class="new-badge">NEW</span></td><td>HKD</td><td>61,700.00</td><td>618.50</td><td class="neg">-150.00</td><td class="neg">-0.24%</td><td class="pos">+1,050.00</td><td class="pos">+1.73%</td><td class="neg">556.65</td><td class="pos">742.20</td></tr>
+      <tr><td>00941</td><td>CHINA MOBILE</td><td>HKD</td><td>81,200.00</td><td>76.65</td><td class="pos">+4,550.00</td><td class="pos">+5.94%</td><td class="pos">+1,250.00</td><td class="pos">+1.56%</td><td class="neg">68.99</td><td class="pos">91.98</td></tr>
+      <tr><td>01357</td><td>MEITU</td><td>HKD</td><td>92,000.00</td><td>4.567</td><td class="neg">-13,040.00</td><td class="neg">-12.42%</td><td class="pos">+920.00</td><td class="pos">+1.01%</td><td class="neg">4.110</td><td class="pos">5.480</td></tr>
+      <tr><td>01428</td><td>BRIGHT SMART</td><td>HKD</td><td>61,700.00</td><td>12.434</td><td class="neg">-62,640.00</td><td class="neg">-50.38%</td><td class="pos">+300.00</td><td class="pos">+0.49%</td><td class="neg">11.191</td><td class="pos">14.921</td></tr>
+      <tr><td>02840</td><td>SPDR Gold Trust</td><td>HKD</td><td>273,980.00</td><td>3,632.00</td><td class="neg">-71,060.00</td><td class="neg">-20.59%</td><td class="pos">+1,140.00</td><td class="pos">+0.42%</td><td class="neg">3,268.80</td><td class="pos">4,358.40</td></tr>
+      <tr><td>00005</td><td>HSBC HOLDINGS</td><td>HKD</td><td>62,600.00</td><td>148.40</td><td class="pos">+3,240.00</td><td class="pos">+5.46%</td><td class="neg">-160.00</td><td class="neg">-0.25%</td><td class="neg">133.56</td><td class="pos">178.08</td></tr>
+      <tr><td>TSLA</td><td>Tesla</td><td>USD</td><td>15,410.39</td><td>410.21</td><td class="neg">-1,188.43</td><td class="neg">-7.16%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">369.19</td><td class="pos">492.25</td></tr>
+      <tr><td>ALB</td><td>Albemarle</td><td>USD</td><td>6,039.00</td><td>160.66</td><td class="neg">-1,993.75</td><td class="neg">-24.82%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">144.59</td><td class="pos">192.79</td></tr>
+      <tr><td>PDD</td><td>PDD Holdings</td><td>USD</td><td>10,096.80</td><td>105.00</td><td class="neg">-2,503.20</td><td class="neg">-19.87%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">94.50</td><td class="pos">126.00</td></tr>
+      <tr><td>MU</td><td>Micron Technology</td><td>USD</td><td>6,791.60</td><td>1,125.00</td><td class="neg">-2,208.40</td><td class="neg">-24.54%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">1,012.50</td><td class="pos">1,350.00</td></tr>
+      <tr><td>COIN</td><td>Coinbase</td><td>USD</td><td>6,756.16</td><td>170.74</td><td class="neg">-585.66</td><td class="neg">-7.98%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">153.67</td><td class="pos">204.89</td></tr>
+      <tr><td>BAC</td><td>Bank of America <span class="new-badge">NEW</span></td><td>USD</td><td>2,757.15</td><td>61.50</td><td class="neg">-10.35</td><td class="neg">-0.37%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">55.35</td><td class="pos">73.80</td></tr>
+      <tr><td>GOOG</td><td>Alphabet-C</td><td>USD</td><td>42,226.64</td><td>322.84</td><td class="pos">+2,840.53</td><td class="pos">+7.21%</td><td class="pos">+0.00</td><td class="pos">+0.00%</td><td class="neg">290.55</td><td class="pos">387.40</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">Source: 持倉.csv &middot; Sorted by Currency, then Today P/L % descending &middot; Stop Loss/Gain shown in each position's own currency, based on average cost &middot; USD positions converted to HKD-equivalent for aggregate totals only &middot; CHINA SHENHUA no longer held; Bank of America (BAC) and CATL (03750) are new additions.</div>
+</div>
+</body>
+</html>
